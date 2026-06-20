@@ -2,7 +2,33 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Лугань — стройматериалы Луганск</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лугань — стройматериалы в Луганске | продажа стройматериалов оптом и в розницу</title>
+<meta name="description" content="«Лугань» — строительная база в Луганске с 2006 года. Более 500 позиций: пиломатериалы, кровля, сыпучие материалы, крепёж, утеплители, тротуарная плитка. Розница и опт, доставка по Луганску и области. Лутугинская улица, 2Д.">
+<meta name="keywords" content="стройматериалы Луганск, строительная база Луганск, доска, брус, шифер, профлист, цемент, щебень, песок, гипсокартон, утеплитель, крепёж, тротуарная плитка, ёмкости для воды, доставка стройматериалов Луганск">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ВАШ-САЙТ.github.io/">
+
+<!-- Open Graph (отображение ссылки при пересылке в соцсетях и мессенджерах) -->
+<meta property="og:type" content="business.business">
+<meta property="og:site_name" content="Лугань">
+<meta property="og:title" content="Лугань — стройматериалы в Луганске">
+<meta property="og:description" content="Строительная база в Луганске с 2006 года. Более 500 позиций в наличии, розница и опт, доставка по городу и области.">
+<meta property="og:image" content="og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://ВАШ-САЙТ.github.io/">
+<meta property="og:locale" content="ru_RU">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Лугань — стройматериалы в Луганске">
+<meta name="twitter:description" content="Строительная база в Луганске с 2006 года. Розница и опт, доставка по городу и области.">
+<meta name="twitter:image" content="og-image.jpg">
+
+<meta name="theme-color" content="#0f2a4d">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
 <style>
   :root{
     --navy:#0f2a4d;
@@ -163,17 +189,97 @@
   .modal-close{
     background:none;border:none;color:#fff;font-size:26px;cursor:pointer;line-height:1;
   }
-  .modal-body{padding:24px 28px;}
-  .item-row{
-    display:flex;justify-content:space-between;align-items:center;
-    padding:14px 0;border-bottom:1px solid #eee;gap:16px;
+  .modal-body{padding:0 0 24px;}
+  .modal-photo{
+    width:100%;height:160px;
+    background:linear-gradient(135deg,var(--blue),var(--navy));
+    background-size:cover;background-position:center;
+    display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,.55);font-size:14px;font-weight:600;
+    text-transform:uppercase;letter-spacing:.5px;
   }
-  .item-row:last-child{border-bottom:none;}
-  .item-row .item-name{font-size:15px;color:var(--ink);}
-  .item-row .item-unit{font-size:12px;color:#8a97a8;display:block;}
-  .item-row .item-price{font-size:16px;font-weight:700;color:var(--blue);white-space:nowrap;}
+  .modal-photo.has-image{color:transparent;}
+  .modal-items{padding:24px 28px 0;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .item-card{
+    border:1px solid #eee;border-radius:8px;overflow:hidden;
+    display:flex;flex-direction:column;background:#fff;
+  }
+  .item-card .item-photo{
+    width:100%;height:90px;
+    background:linear-gradient(135deg,var(--blue-light),var(--blue));
+    background-size:cover;background-position:center;
+    display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,.55);font-size:11px;text-transform:uppercase;letter-spacing:.4px;
+  }
+  .item-card .item-info{padding:12px 14px 14px;}
+  .item-card .item-name{font-size:14px;color:var(--ink);font-weight:600;display:block;margin-bottom:2px;}
+  .item-card .item-unit{font-size:12px;color:#8a97a8;display:block;margin-bottom:8px;}
+  .item-card .item-price{font-size:16px;font-weight:800;color:var(--blue);}
   .modal-foot{
-    padding:18px 28px 26px;text-align:center;
+    padding:22px 28px 26px;text-align:center;
+  }
+
+  /* модальные фото — теперь настоящие <img loading="lazy">, ленивая загрузка работает сама собой */
+  .modal-photo img, .item-card .item-photo img{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+
+  /* REVIEWS */
+  .reviews{background:var(--paper);}
+  .rev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .rev-card{
+    background:#fff;border-radius:8px;padding:26px 24px;
+    box-shadow:0 2px 10px rgba(15,42,77,.08);border-top:4px solid var(--yellow);
+  }
+  .rev-stars{color:var(--yellow);font-size:18px;letter-spacing:2px;margin-bottom:10px;}
+  .rev-text{font-size:15px;color:#384a63;margin-bottom:18px;}
+  .rev-person{display:flex;align-items:center;gap:12px;}
+  .rev-avatar{
+    width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--yellow);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex:0 0 auto;
+  }
+  .rev-name{font-weight:700;color:var(--navy);font-size:14px;}
+  .rev-role{font-size:12px;color:#8a97a8;}
+
+  /* MAP */
+  .map-block{margin-top:40px;}
+  .map-block h3{color:var(--yellow);font-size:16px;margin-bottom:14px;letter-spacing:.5px;}
+  .map-frame{border-radius:8px;overflow:hidden;border:3px solid var(--yellow);line-height:0;}
+  .map-frame iframe{display:block;width:100%;height:320px;border:0;}
+
+  /* FLOATING BUTTONS */
+  .float-call{
+    position:fixed;right:20px;bottom:20px;z-index:500;
+    width:62px;height:62px;border-radius:50%;
+    background:var(--yellow);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;border:2px solid var(--navy);
+    box-shadow:0 6px 18px rgba(15,42,77,.4);
+    animation:pulse 2.4s infinite;
+  }
+  .float-call:hover{background:var(--yellow-dark);}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(242,183,5,.55),0 6px 18px rgba(15,42,77,.4);}
+    70%{box-shadow:0 0 0 14px rgba(242,183,5,0),0 6px 18px rgba(15,42,77,.4);}
+    100%{box-shadow:0 0 0 0 rgba(242,183,5,0),0 6px 18px rgba(15,42,77,.4);}
+  }
+  .to-top{
+    position:fixed;right:24px;bottom:94px;z-index:500;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--navy);color:#fff;border:2px solid var(--yellow);
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+    box-shadow:0 4px 14px rgba(15,42,77,.35);cursor:pointer;
+    opacity:0;visibility:hidden;transform:translateY(10px);
+    transition:opacity .25s ease,transform .25s ease,visibility .25s;
+  }
+  .to-top.visible{opacity:1;visibility:visible;transform:translateY(0);}
+  .to-top:hover{background:var(--blue);}
+
+  /* SCROLL REVEAL */
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease;}
+  [data-reveal].is-visible{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){
+    [data-reveal]{transition:none;opacity:1;transform:none;}
   }
 
   @media(max-width:760px){
@@ -181,8 +287,11 @@
     .adv-grid{grid-template-columns:1fr;}
     .hits-grid{grid-template-columns:1fr 1fr;}
     .cat-grid{grid-template-columns:1fr 1fr;}
+    .rev-grid{grid-template-columns:1fr;}
     .foot-grid{grid-template-columns:1fr;}
     .delivery-inner{text-align:center;justify-content:center;}
+    .float-call{width:54px;height:54px;font-size:22px;right:16px;bottom:16px;}
+    .to-top{width:40px;height:40px;right:18px;bottom:80px;}
   }
   @media(max-width:480px){
     .hits-grid{grid-template-columns:1fr;}
@@ -208,12 +317,12 @@
   <!-- ABOUT -->
   <section class="about">
     <div class="wrap about-grid">
-      <div class="about-text">
+      <div class="about-text" data-reveal>
         <h2 class="section-title">О компании</h2>
         <p>«Лугань» — строительная база в Луганске, где собран весь основной ассортимент материалов для дома, дачи и крупного объекта: от доски и кирпича до крепежа и утеплителя.</p>
         <p>Работаем и с частными покупателями, и со строительными бригадами — продаём от штуки до полной фуры. Помогаем подобрать материал и довезти его прямо на объект.</p>
       </div>
-      <div class="since-badge">
+      <div class="since-badge" data-reveal>
         <div class="num">2006</div>
         <div class="lbl">НА РЫНКЕ СТРОЙМАТЕРИАЛОВ ЛУГАНСКА</div>
       </div>
@@ -226,12 +335,12 @@
       <h2 class="section-title">Почему выбирают нас</h2>
       <p class="section-sub">Шесть причин обратиться именно к нам</p>
       <div class="adv-grid">
-        <div class="adv-card"><span class="icon">🏗️</span><h3>На рынке с 2006 года</h3><p>Знаем, что нужно и частнику, и строительной бригаде — подскажем материал под задачу.</p></div>
-        <div class="adv-card"><span class="icon">📦</span><h3>Более 500 позиций в наличии</h3><p>От доски и шифера до крепежа и утеплителя — найдёте всё для стройки и ремонта в одном месте.</p></div>
-        <div class="adv-card"><span class="icon">🚚</span><h3>Доставка по Луганску и области</h3><p>Привезём материал прямо на объект — не нужно искать транспорт самостоятельно.</p></div>
-        <div class="adv-card"><span class="icon">💰</span><h3>Цены без посредников</h3><p>Работаем напрямую с производителями — экономия на каждой позиции.</p></div>
-        <div class="adv-card"><span class="icon">🧱</span><h3>Розница и опт</h3><p>Продаём от штуки до вагона — подходим и для дачного ремонта, и для крупной стройки.</p></div>
-        <div class="adv-card"><span class="icon">✅</span><h3>Качество проверено годами</h3><p>Работаем с проверенными поставщиками и брендами утеплителей и кровли.</p></div>
+        <div class="adv-card" data-reveal style="transition-delay:0ms"><span class="icon">🏗️</span><h3>На рынке с 2006 года</h3><p>Знаем, что нужно и частнику, и строительной бригаде — подскажем материал под задачу.</p></div>
+        <div class="adv-card" data-reveal style="transition-delay:60ms"><span class="icon">📦</span><h3>Более 500 позиций в наличии</h3><p>От доски и шифера до крепежа и утеплителя — найдёте всё для стройки и ремонта в одном месте.</p></div>
+        <div class="adv-card" data-reveal style="transition-delay:120ms"><span class="icon">🚚</span><h3>Доставка по Луганску и области</h3><p>Привезём материал прямо на объект — не нужно искать транспорт самостоятельно.</p></div>
+        <div class="adv-card" data-reveal style="transition-delay:0ms"><span class="icon">💰</span><h3>Цены без посредников</h3><p>Работаем напрямую с производителями — экономия на каждой позиции.</p></div>
+        <div class="adv-card" data-reveal style="transition-delay:60ms"><span class="icon">🧱</span><h3>Розница и опт</h3><p>Продаём от штуки до вагона — подходим и для дачного ремонта, и для крупной стройки.</p></div>
+        <div class="adv-card" data-reveal style="transition-delay:120ms"><span class="icon">✅</span><h3>Качество проверено годами</h3><p>Работаем с проверенными поставщиками и брендами утеплителей и кровли.</p></div>
       </div>
     </div>
   </section>
@@ -254,9 +363,63 @@
     </div>
   </section>
 
+  <!-- REVIEWS -->
+  <section class="reviews">
+    <div class="wrap">
+      <h2 class="section-title">Отзывы клиентов</h2>
+      <p class="section-sub">Что говорят те, кто уже покупал у нас материалы</p>
+      <div class="rev-grid">
+        <div class="rev-card" data-reveal style="transition-delay:0ms">
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">Заказывал доску и цемент для фундамента — привезли вовремя, без обмана с объёмом. Цены реально ниже, чем у конкурентов в центре.</p>
+          <div class="rev-person">
+            <div class="rev-avatar">Д</div>
+            <div>
+              <div class="rev-name">Дмитрий</div>
+              <div class="rev-role">частный застройщик</div>
+            </div>
+          </div>
+        </div>
+        <div class="rev-card" data-reveal style="transition-delay:80ms">
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">Работаю с «Лугань» по утеплителю и гипсокартону для нескольких объектов. Удобно, что можно уточнить наличие по телефону и сразу забронировать партию.</p>
+          <div class="rev-person">
+            <div class="rev-avatar">О</div>
+            <div>
+              <div class="rev-name">Ольга</div>
+              <div class="rev-role">дизайнер интерьеров</div>
+            </div>
+          </div>
+        </div>
+        <div class="rev-card" data-reveal style="transition-delay:0ms">
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">Берём кровельные материалы и крепёж оптом. Со склада выдают быстро, пересортицы ни разу не было за полтора года работы.</p>
+          <div class="rev-person">
+            <div class="rev-avatar">С</div>
+            <div>
+              <div class="rev-name">Сергей</div>
+              <div class="rev-role">бригадир строительной бригады</div>
+            </div>
+          </div>
+        </div>
+        <div class="rev-card" data-reveal style="transition-delay:80ms">
+          <div class="rev-stars">★★★★★</div>
+          <p class="rev-text">Нужна была тротуарная плитка и ёмкость для воды на дачу — подсказали, сколько надо по площади, и сами привезли на участок.</p>
+          <div class="rev-person">
+            <div class="rev-avatar">Т</div>
+            <div>
+              <div class="rev-name">Татьяна</div>
+              <div class="rev-role">хозяйка дачного участка</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- DELIVERY -->
   <section class="delivery">
-    <div class="wrap delivery-inner">
+    <div class="wrap delivery-inner" data-reveal>
       <div class="truck-icon">🚛</div>
       <div>
         <h2 class="section-title">Доставка по Луганску и области</h2>
@@ -275,7 +438,8 @@
       </div>
       <div>
         <h3>Режим работы</h3>
-        <p>Пн–Сб: 8:00–18:00</p>
+        <p>Пн–Пт: 8:00–16:30</p>
+        <p>Сб: 8:00–14:00</p>
         <p>Вс: выходной</p>
       </div>
       <div>
@@ -284,8 +448,21 @@
         <p>Розница и опт</p>
       </div>
     </div>
+    <div class="wrap map-block">
+      <h3>Как нас найти</h3>
+      <div class="map-frame">
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?ll=39.291857%2C48.552887&z=17&ol=biz&oid=165087369448"
+          width="100%" height="320" frameborder="0" loading="lazy"
+          title="Лугань на карте — Луганск, Лутугинская улица, 2Д"></iframe>
+      </div>
+    </div>
     <div class="wrap foot-bottom">© Лугань. Строительные материалы в Луганске с 2006 года.</div>
   </footer>
+
+  <!-- ПЛАВАЮЩИЕ КНОПКИ -->
+  <a href="tel:+79591305900" class="float-call" aria-label="Позвонить" title="Позвонить">📞</a>
+  <button class="to-top" id="toTopBtn" aria-label="Наверх страницы" title="Наверх">↑</button>
 
   <!-- MODAL -->
   <div class="modal-overlay" id="modalOverlay">
@@ -294,7 +471,10 @@
         <h3 id="modalTitle">Категория</h3>
         <button class="modal-close" id="modalClose">&times;</button>
       </div>
-      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-body">
+        <div class="modal-photo" id="modalPhoto">Фото категории — добавьте позже</div>
+        <div class="modal-items" id="modalItems"></div>
+      </div>
       <div class="modal-foot">
         <a href="tel:+79591305900" class="btn small">Заказать по телефону</a>
       </div>
@@ -313,6 +493,7 @@ const CATALOG = [
     icon:'🪵',
     title:'Лесопиломатериалы',
     desc:'Доска, брус разных сечений и пород',
+    image:null, // <- вставьте сюда ссылку на фото категории, например 'https://i.imgur.com/xxxx.jpg'
     items:[
       {name:'Доска обрезная 25х150х6000', unit:'м³', price:'от 18000 ₽'},
       {name:'Брус 100х100х6000', unit:'м³', price:'от 19500 ₽'},
@@ -324,6 +505,7 @@ const CATALOG = [
     icon:'🏠',
     title:'Кровельные материалы',
     desc:'Шифер, рубероид, профлист',
+    image:null, // <- вставьте сюда ссылку на фото категории, например 'https://i.imgur.com/xxxx.jpg'
     items:[
       {name:'Шифер волновой 8-волновой', unit:'лист', price:'от 480 ₽'},
       {name:'Рубероид РКП-350', unit:'рулон', price:'от 650 ₽'},
@@ -335,6 +517,7 @@ const CATALOG = [
     icon:'🧱',
     title:'Сыпучие материалы',
     desc:'Песок, щебень, цемент, отделочные смеси',
+    image:null, // <- вставьте сюда ссылку на фото категории, например 'https://i.imgur.com/xxxx.jpg'
     items:[
       {name:'Песок строительный', unit:'тонна', price:'от 900 ₽'},
       {name:'Щебень фракция 5-20', unit:'тонна', price:'от 1400 ₽'},
@@ -347,6 +530,7 @@ const CATALOG = [
     icon:'📐',
     title:'Стеновые материалы',
     desc:'Гипсокартон, ОСБ, фанера',
+    image:null, // <- вставьте сюда ссылку на фото категории, например 'https://i.imgur.com/xxxx.jpg'
     items:[
       {name:'Гипсокартон 12.5 мм', unit:'лист', price:'от 480 ₽'},
       {name:'ОСБ-3 9 мм', unit:'лист', price:'от 1350 ₽'},
@@ -358,6 +542,7 @@ const CATALOG = [
     icon:'🔩',
     title:'Крепёжные материалы',
     desc:'Гвозди, саморезы, шурупы, гайки',
+    image:null, // <- вставьте сюда ссылку на фото категории, например 'https://i.imgur.com/xxxx.jpg'
     items:[
       {name:'Саморезы по дереву 3.5х41', unit:'кг', price:'от 220 ₽'},
       {name:'Гвозди строительные', unit:'кг', price:'от 180 ₽'},
@@ -369,6 +554,7 @@ const CATALOG = [
     icon:'❄️',
     title:'Утеплители',
     desc:'Пенопласт и плитные утеплители известных брендов',
+    image:null, // <- вставьте сюда ссылку на фото категории, например 'https://i.imgur.com/xxxx.jpg'
     items:[
       {name:'Пенопласт ПСБ-С 25, 50 мм', unit:'лист', price:'от 320 ₽'},
       {name:'Минеральная плита, 50 мм', unit:'упак.', price:'от 1450 ₽'},
@@ -379,6 +565,7 @@ const CATALOG = [
     icon:'🪚',
     title:'Столярные изделия',
     desc:'Доска сухая строганая: сосна, дуб, ясень, ольха, клён',
+    image:null, // <- вставьте сюда ссылку на фото категории, например 'https://i.imgur.com/xxxx.jpg'
     items:[
       {name:'Доска строганая сосна', unit:'м³', price:'от 26000 ₽'},
       {name:'Доска строганая дуб', unit:'м³', price:'от 55000 ₽'},
@@ -392,6 +579,7 @@ const CATALOG = [
     icon:'🌲',
     title:'Изделия из дерева',
     desc:'Вагонка и другие столярные изделия',
+    image:null, // <- вставьте сюда ссылку на фото категории, например 'https://i.imgur.com/xxxx.jpg'
     items:[
       {name:'Вагонка сосна', unit:'м²', price:'от 650 ₽'},
       {name:'Вагонка ольха', unit:'м²', price:'от 780 ₽'},
@@ -402,6 +590,7 @@ const CATALOG = [
     icon:'🎞️',
     title:'Плёнка',
     desc:'Плёнка строительная и плёнка затенения',
+    image:null, // <- вставьте сюда ссылку на фото категории, например 'https://i.imgur.com/xxxx.jpg'
     items:[
       {name:'Плёнка строительная 100 мкм', unit:'рулон', price:'от 1200 ₽'},
       {name:'Плёнка затенения 60%', unit:'м²', price:'от 65 ₽'},
@@ -412,6 +601,7 @@ const CATALOG = [
     icon:'🔲',
     title:'Тротуарная плитка',
     desc:'Разные виды и размеры в наличии',
+    image:null, // <- вставьте сюда ссылку на фото категории, например 'https://i.imgur.com/xxxx.jpg'
     items:[
       {name:'Плитка тротуарная "Брусчатка"', unit:'м²', price:'от 850 ₽'},
       {name:'Плитка тротуарная "Катушка"', unit:'м²', price:'от 900 ₽'},
@@ -422,6 +612,7 @@ const CATALOG = [
     icon:'🛢️',
     title:'Ёмкости для воды',
     desc:'Пластиковые ёмкости разного объёма',
+    image:null, // <- вставьте сюда ссылку на фото категории, например 'https://i.imgur.com/xxxx.jpg'
     items:[
       {name:'Ёмкость пластиковая 200 л', unit:'шт', price:'от 4200 ₽'},
       {name:'Ёмкость пластиковая 1000 л', unit:'шт', price:'от 9800 ₽'},
@@ -439,8 +630,8 @@ const HITS = [
 
 function renderHits(){
   const grid = document.getElementById('hitsGrid');
-  grid.innerHTML = HITS.map(h => `
-    <div class="hit-card">
+  grid.innerHTML = HITS.map((h,i) => `
+    <div class="hit-card" data-reveal style="transition-delay:${(i%4)*70}ms">
       <span class="badge">${h.badge}</span>
       <h3>${h.name}</h3>
       <div class="unit">${h.unit}</div>
@@ -451,8 +642,8 @@ function renderHits(){
 
 function renderCatalog(){
   const grid = document.getElementById('catGrid');
-  grid.innerHTML = CATALOG.map(cat => `
-    <button class="cat-card" data-cat="${cat.id}">
+  grid.innerHTML = CATALOG.map((cat,i) => `
+    <button class="cat-card" data-cat="${cat.id}" data-reveal style="transition-delay:${(i%3)*70}ms">
       <h3>${cat.icon} ${cat.title}</h3>
       <p>${cat.desc}</p>
       <span class="open-link">Смотреть позиции</span>
@@ -467,13 +658,37 @@ function renderCatalog(){
 function openModal(catId){
   const cat = CATALOG.find(c=>c.id===catId);
   if(!cat) return;
+
   document.getElementById('modalTitle').textContent = cat.icon + ' ' + cat.title;
-  document.getElementById('modalBody').innerHTML = cat.items.map(it => `
-    <div class="item-row">
-      <div class="item-name">${it.name}<span class="item-unit">${it.unit}</span></div>
-      <div class="item-price">${it.price}</div>
+
+  // Фото-баннер категории: если в cat.image указана ссылка — рендерим <img loading="lazy">,
+  // если null — оставляем градиентную заглушку (картинка вообще не запрашивается из сети)
+  const photoEl = document.getElementById('modalPhoto');
+  if(cat.image){
+    photoEl.style.backgroundImage = 'none';
+    photoEl.classList.add('has-image');
+    photoEl.innerHTML = `<img src="${cat.image}" alt="${cat.title}" loading="lazy" decoding="async">`;
+  } else {
+    photoEl.style.backgroundImage = '';
+    photoEl.classList.remove('has-image');
+    photoEl.innerHTML = 'Фото категории — добавьте позже';
+  }
+
+  // Карточки товаров. Картинка у каждой карточки сейчас = фото категории (одна на всю категорию).
+  // Ленивая загрузка: пока cat.image не заполнено, никаких картинок не запрашивается вовсе.
+  document.getElementById('modalItems').innerHTML = cat.items.map(it => `
+    <div class="item-card">
+      <div class="item-photo">
+        ${cat.image ? `<img src="${cat.image}" alt="${it.name}" loading="lazy" decoding="async">` : 'фото'}
+      </div>
+      <div class="item-info">
+        <span class="item-name">${it.name}</span>
+        <span class="item-unit">${it.unit}</span>
+        <span class="item-price">${it.price}</span>
+      </div>
     </div>
   `).join('');
+
   document.getElementById('modalOverlay').classList.add('active');
 }
 
@@ -486,6 +701,38 @@ document.getElementById('modalOverlay').addEventListener('click', (e)=>{
 
 renderHits();
 renderCatalog();
+
+/* ===== Анимация появления блоков при скролле ===== */
+function initScrollReveal(){
+  const els = document.querySelectorAll('[data-reveal]:not(.is-visible)');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el => io.observe(el));
+}
+initScrollReveal();
+
+/* ===== Кнопка «наверх» — появляется при скролле вниз ===== */
+const toTopBtn = document.getElementById('toTopBtn');
+window.addEventListener('scroll', ()=>{
+  if(window.scrollY > 420){
+    toTopBtn.classList.add('visible');
+  } else {
+    toTopBtn.classList.remove('visible');
+  }
+});
+toTopBtn.addEventListener('click', ()=>{
+  window.scrollTo({top:0, behavior:'smooth'});
+});
 </script>
 
 </body>
