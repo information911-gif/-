@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Лугань — стройматериалы Луганск</title>
+<style>
+  :root{
+    --navy:#0f2a4d;
+    --blue:#1a4a85;
+    --blue-light:#2b63a8;
+    --yellow:#f2b705;
+    --yellow-dark:#d99a00;
+    --paper:#f7f4ec;
+    --ink:#16243a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI',Arial,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.5;
+  }
+  h1,h2,h3{
+    font-family:Impact,'Arial Narrow',sans-serif;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+  }
+  a{text-decoration:none;color:inherit;}
+
+  /* HERO */
+  .hero-stripes{
+    background-image:repeating-linear-gradient(
+      90deg,
+      var(--navy) 0px, var(--navy) 10px,
+      var(--blue) 10px, var(--blue) 20px
+    );
+  }
+  .hero-top-bar{background:var(--yellow);height:10px;width:100%;}
+  .hero-inner{
+    max-width:1100px;margin:0 auto;
+    padding:64px 24px 72px;text-align:center;color:#fff;
+  }
+  .hero h1{
+    font-size:clamp(48px,9vw,96px);
+    color:#fff;
+    -webkit-text-stroke:2px var(--yellow);
+    text-shadow:3px 3px 0 var(--navy);
+    margin-bottom:8px;
+  }
+  .hero .tagline{
+    font-size:clamp(16px,2.4vw,22px);
+    color:var(--yellow);font-weight:600;
+    margin-bottom:28px;letter-spacing:.5px;
+  }
+  .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;background:var(--yellow);color:var(--navy);
+    font-weight:700;padding:14px 30px;border-radius:4px;font-size:18px;
+    transition:transform .15s ease, background .15s ease;
+    border:2px solid var(--navy);cursor:pointer;
+  }
+  .btn:hover{background:var(--yellow-dark);transform:translateY(-2px);}
+  .btn.outline{background:transparent;color:#fff;border:2px solid #fff;}
+  .btn.outline:hover{background:rgba(255,255,255,.12);}
+  .btn.small{padding:8px 18px;font-size:14px;}
+
+  section{padding:64px 24px;}
+  .wrap{max-width:1100px;margin:0 auto;}
+  .section-title{
+    font-size:clamp(28px,4vw,40px);color:var(--navy);
+    margin-bottom:8px;position:relative;padding-bottom:14px;
+  }
+  .section-title::after{
+    content:'';position:absolute;left:0;bottom:0;
+    width:64px;height:6px;background:var(--yellow);
+  }
+  .section-sub{color:var(--blue-light);font-size:16px;margin-bottom:36px;max-width:640px;}
+
+  /* ABOUT */
+  .about{background:#fff;}
+  .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;}
+  .about-text p{font-size:17px;margin-bottom:16px;}
+  .since-badge{
+    background:var(--navy);color:#fff;border-radius:8px;padding:32px;
+    text-align:center;border-top:6px solid var(--yellow);
+  }
+  .since-badge .num{font-size:64px;font-weight:900;color:var(--yellow);line-height:1;font-family:Impact,sans-serif;}
+  .since-badge .lbl{font-size:15px;margin-top:8px;letter-spacing:.5px;}
+
+  /* ADVANTAGES */
+  .advantages{background:var(--navy);color:#fff;}
+  .advantages .section-title{color:#fff;}
+  .advantages .section-sub{color:#cfe0f5;}
+  .adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .adv-card{background:var(--blue);border-radius:8px;padding:28px 22px;border-left:5px solid var(--yellow);}
+  .adv-card .icon{font-size:30px;margin-bottom:12px;display:block;}
+  .adv-card h3{font-size:18px;color:var(--yellow);margin-bottom:10px;text-transform:none;letter-spacing:0;}
+  .adv-card p{font-size:15px;color:#dce8f7;}
+
+  /* HITS */
+  .hits{background:#fff;}
+  .hits-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .hit-card{
+    background:var(--paper);border-radius:8px;padding:20px;
+    border:1px solid #e3dcc9;display:flex;flex-direction:column;
+  }
+  .hit-card .badge{
+    display:inline-block;background:var(--yellow);color:var(--navy);
+    font-size:12px;font-weight:700;padding:3px 10px;border-radius:3px;
+    margin-bottom:10px;align-self:flex-start;text-transform:uppercase;
+  }
+  .hit-card h3{font-size:16px;color:var(--navy);text-transform:none;letter-spacing:0;margin-bottom:6px;}
+  .hit-card .unit{font-size:13px;color:#6b7c93;margin-bottom:14px;}
+  .hit-card .price{font-size:22px;font-weight:800;color:var(--blue);margin-bottom:14px;margin-top:auto;}
+  .hit-card .price span{font-size:13px;color:#6b7c93;font-weight:400;}
+
+  /* CATALOG */
+  .catalog{background:var(--paper);}
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .cat-card{
+    background:#fff;border-radius:6px;padding:22px;
+    box-shadow:0 2px 10px rgba(15,42,77,.08);border-bottom:4px solid var(--blue);
+    transition:transform .15s ease, border-color .15s ease;
+    cursor:pointer;text-align:left;width:100%;border-top:none;border-left:none;border-right:none;
+  }
+  .cat-card:hover{transform:translateY(-4px);border-bottom-color:var(--yellow);}
+  .cat-card h3{font-size:17px;color:var(--navy);margin-bottom:8px;text-transform:none;letter-spacing:0;}
+  .cat-card p{font-size:14px;color:#445876;margin-bottom:10px;}
+  .cat-card .open-link{font-size:14px;color:var(--blue);font-weight:700;}
+  .cat-card .open-link::after{content:' →';}
+
+  /* DELIVERY */
+  .delivery{background:var(--yellow);color:var(--navy);}
+  .delivery-inner{display:flex;align-items:center;gap:32px;flex-wrap:wrap;}
+  .delivery .truck-icon{font-size:64px;flex:0 0 auto;}
+  .delivery h2{color:var(--navy);}
+  .delivery .section-title::after{background:var(--navy);}
+  .delivery p{font-size:17px;max-width:600px;}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:#fff;padding:56px 24px 32px;}
+  .foot-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;margin-bottom:32px;}
+  footer h3{color:var(--yellow);font-size:16px;margin-bottom:14px;letter-spacing:.5px;}
+  footer p, footer a{font-size:15px;color:#d6e2f2;display:block;margin-bottom:6px;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:20px;text-align:center;font-size:13px;color:#9fb4d1;}
+
+  /* MODAL */
+  .modal-overlay{
+    display:none;position:fixed;inset:0;background:rgba(15,42,77,.72);
+    z-index:999;align-items:center;justify-content:center;padding:20px;
+  }
+  .modal-overlay.active{display:flex;}
+  .modal-box{
+    background:#fff;border-radius:10px;max-width:640px;width:100%;
+    max-height:80vh;overflow-y:auto;padding:0;
+    border-top:8px solid var(--yellow);
+  }
+  .modal-head{
+    background:var(--navy);color:#fff;padding:22px 28px;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .modal-head h3{color:var(--yellow);font-size:22px;text-transform:none;letter-spacing:0;}
+  .modal-close{
+    background:none;border:none;color:#fff;font-size:26px;cursor:pointer;line-height:1;
+  }
+  .modal-body{padding:24px 28px;}
+  .item-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 0;border-bottom:1px solid #eee;gap:16px;
+  }
+  .item-row:last-child{border-bottom:none;}
+  .item-row .item-name{font-size:15px;color:var(--ink);}
+  .item-row .item-unit{font-size:12px;color:#8a97a8;display:block;}
+  .item-row .item-price{font-size:16px;font-weight:700;color:var(--blue);white-space:nowrap;}
+  .modal-foot{
+    padding:18px 28px 26px;text-align:center;
+  }
+
+  @media(max-width:760px){
+    .about-grid{grid-template-columns:1fr;}
+    .adv-grid{grid-template-columns:1fr;}
+    .hits-grid{grid-template-columns:1fr 1fr;}
+    .cat-grid{grid-template-columns:1fr 1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .delivery-inner{text-align:center;justify-content:center;}
+  }
+  @media(max-width:480px){
+    .hits-grid{grid-template-columns:1fr;}
+    .cat-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero-stripes">
+    <div class="hero-top-bar"></div>
+    <div class="hero-inner">
+      <h1>ЛУГАНЬ</h1>
+      <div class="tagline">Строительные материалы в Луганске — всё для стройки и ремонта в одном месте</div>
+      <div class="cta-row">
+        <a href="tel:+79591305900" class="btn">Позвонить</a>
+        <a href="#catalog" class="btn outline">Смотреть каталог</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="wrap about-grid">
+      <div class="about-text">
+        <h2 class="section-title">О компании</h2>
+        <p>«Лугань» — строительная база в Луганске, где собран весь основной ассортимент материалов для дома, дачи и крупного объекта: от доски и кирпича до крепежа и утеплителя.</p>
+        <p>Работаем и с частными покупателями, и со строительными бригадами — продаём от штуки до полной фуры. Помогаем подобрать материал и довезти его прямо на объект.</p>
+      </div>
+      <div class="since-badge">
+        <div class="num">2006</div>
+        <div class="lbl">НА РЫНКЕ СТРОЙМАТЕРИАЛОВ ЛУГАНСКА</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANTAGES -->
+  <section class="advantages">
+    <div class="wrap">
+      <h2 class="section-title">Почему выбирают нас</h2>
+      <p class="section-sub">Шесть причин обратиться именно к нам</p>
+      <div class="adv-grid">
+        <div class="adv-card"><span class="icon">🏗️</span><h3>На рынке с 2006 года</h3><p>Знаем, что нужно и частнику, и строительной бригаде — подскажем материал под задачу.</p></div>
+        <div class="adv-card"><span class="icon">📦</span><h3>Более 500 позиций в наличии</h3><p>От доски и шифера до крепежа и утеплителя — найдёте всё для стройки и ремонта в одном месте.</p></div>
+        <div class="adv-card"><span class="icon">🚚</span><h3>Доставка по Луганску и области</h3><p>Привезём материал прямо на объект — не нужно искать транспорт самостоятельно.</p></div>
+        <div class="adv-card"><span class="icon">💰</span><h3>Цены без посредников</h3><p>Работаем напрямую с производителями — экономия на каждой позиции.</p></div>
+        <div class="adv-card"><span class="icon">🧱</span><h3>Розница и опт</h3><p>Продаём от штуки до вагона — подходим и для дачного ремонта, и для крупной стройки.</p></div>
+        <div class="adv-card"><span class="icon">✅</span><h3>Качество проверено годами</h3><p>Работаем с проверенными поставщиками и брендами утеплителей и кровли.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HITS -->
+  <section class="hits">
+    <div class="wrap">
+      <h2 class="section-title">Хиты продаж</h2>
+      <p class="section-sub">Самые востребованные позиции этого месяца</p>
+      <div class="hits-grid" id="hitsGrid"></div>
+    </div>
+  </section>
+
+  <!-- CATALOG -->
+  <section class="catalog" id="catalog">
+    <div class="wrap">
+      <h2 class="section-title">Каталог материалов</h2>
+      <p class="section-sub">Нажмите на категорию, чтобы посмотреть позиции и цены</p>
+      <div class="cat-grid" id="catGrid"></div>
+    </div>
+  </section>
+
+  <!-- DELIVERY -->
+  <section class="delivery">
+    <div class="wrap delivery-inner">
+      <div class="truck-icon">🚛</div>
+      <div>
+        <h2 class="section-title">Доставка по Луганску и области</h2>
+        <p>Привезём материал прямо на объект. Условия и стоимость доставки уточняйте у менеджера по телефону.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <footer>
+    <div class="wrap foot-grid">
+      <div>
+        <h3>Контакты</h3>
+        <a href="tel:+79591305900">+7 (959) 130-59-00</a>
+        <p>Луганск, Лутугинская улица, 2Д</p>
+      </div>
+      <div>
+        <h3>Режим работы</h3>
+        <p>Пн–Сб: 8:00–18:00</p>
+        <p>Вс: выходной</p>
+      </div>
+      <div>
+        <h3>Доставка</h3>
+        <p>По Луганску и области</p>
+        <p>Розница и опт</p>
+      </div>
+    </div>
+    <div class="wrap foot-bottom">© Лугань. Строительные материалы в Луганске с 2006 года.</div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3 id="modalTitle">Категория</h3>
+        <button class="modal-close" id="modalClose">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-foot">
+        <a href="tel:+79591305900" class="btn small">Заказать по телефону</a>
+      </div>
+    </div>
+  </div>
+
+<script>
+/*
+  ВСЕ ЦЕНЫ И ПОЗИЦИИ — ПРИМЕРНЫЕ, ПОПРАВЬТЕ ПОД РЕАЛЬНЫЙ АССОРТИМЕНТ.
+  Чтобы добавить товар в категорию — добавьте строку { name:'...', unit:'...', price:'...' } в массив items нужной категории.
+  Чтобы добавить новую категорию — скопируйте один объект целиком и измените id, title, icon, desc, items.
+*/
+const CATALOG = [
+  {
+    id:'wood',
+    icon:'🪵',
+    title:'Лесопиломатериалы',
+    desc:'Доска, брус разных сечений и пород',
+    items:[
+      {name:'Доска обрезная 25х150х6000', unit:'м³', price:'от 18000 ₽'},
+      {name:'Брус 100х100х6000', unit:'м³', price:'от 19500 ₽'},
+      {name:'Доска необрезная', unit:'м³', price:'от 14000 ₽'},
+    ]
+  },
+  {
+    id:'roof',
+    icon:'🏠',
+    title:'Кровельные материалы',
+    desc:'Шифер, рубероид, профлист',
+    items:[
+      {name:'Шифер волновой 8-волновой', unit:'лист', price:'от 480 ₽'},
+      {name:'Рубероид РКП-350', unit:'рулон', price:'от 650 ₽'},
+      {name:'Профлист С8', unit:'м²', price:'от 420 ₽'},
+    ]
+  },
+  {
+    id:'bulk',
+    icon:'🧱',
+    title:'Сыпучие материалы',
+    desc:'Песок, щебень, цемент, отделочные смеси',
+    items:[
+      {name:'Песок строительный', unit:'тонна', price:'от 900 ₽'},
+      {name:'Щебень фракция 5-20', unit:'тонна', price:'от 1400 ₽'},
+      {name:'Цемент М500', unit:'мешок 50 кг', price:'от 550 ₽'},
+      {name:'Смесь штукатурная', unit:'мешок 25 кг', price:'от 380 ₽'},
+    ]
+  },
+  {
+    id:'walls',
+    icon:'📐',
+    title:'Стеновые материалы',
+    desc:'Гипсокартон, ОСБ, фанера',
+    items:[
+      {name:'Гипсокартон 12.5 мм', unit:'лист', price:'от 480 ₽'},
+      {name:'ОСБ-3 9 мм', unit:'лист', price:'от 1350 ₽'},
+      {name:'Фанера ФК 9 мм', unit:'лист', price:'от 1100 ₽'},
+    ]
+  },
+  {
+    id:'fix',
+    icon:'🔩',
+    title:'Крепёжные материалы',
+    desc:'Гвозди, саморезы, шурупы, гайки',
+    items:[
+      {name:'Саморезы по дереву 3.5х41', unit:'кг', price:'от 220 ₽'},
+      {name:'Гвозди строительные', unit:'кг', price:'от 180 ₽'},
+      {name:'Шурупы оцинкованные', unit:'кг', price:'от 240 ₽'},
+    ]
+  },
+  {
+    id:'insulation',
+    icon:'❄️',
+    title:'Утеплители',
+    desc:'Пенопласт и плитные утеплители известных брендов',
+    items:[
+      {name:'Пенопласт ПСБ-С 25, 50 мм', unit:'лист', price:'от 320 ₽'},
+      {name:'Минеральная плита, 50 мм', unit:'упак.', price:'от 1450 ₽'},
+    ]
+  },
+  {
+    id:'joinery',
+    icon:'🪚',
+    title:'Столярные изделия',
+    desc:'Доска сухая строганая: сосна, дуб, ясень, ольха, клён',
+    items:[
+      {name:'Доска строганая сосна', unit:'м³', price:'от 26000 ₽'},
+      {name:'Доска строганая дуб', unit:'м³', price:'от 55000 ₽'},
+      {name:'Доска строганая ясень', unit:'м³', price:'от 48000 ₽'},
+      {name:'Доска строганая ольха', unit:'м³', price:'от 32000 ₽'},
+      {name:'Доска строганая клён', unit:'м³', price:'от 50000 ₽'},
+    ]
+  },
+  {
+    id:'woodgoods',
+    icon:'🌲',
+    title:'Изделия из дерева',
+    desc:'Вагонка и другие столярные изделия',
+    items:[
+      {name:'Вагонка сосна', unit:'м²', price:'от 650 ₽'},
+      {name:'Вагонка ольха', unit:'м²', price:'от 780 ₽'},
+    ]
+  },
+  {
+    id:'film',
+    icon:'🎞️',
+    title:'Плёнка',
+    desc:'Плёнка строительная и плёнка затенения',
+    items:[
+      {name:'Плёнка строительная 100 мкм', unit:'рулон', price:'от 1200 ₽'},
+      {name:'Плёнка затенения 60%', unit:'м²', price:'от 65 ₽'},
+    ]
+  },
+  {
+    id:'pavers',
+    icon:'🔲',
+    title:'Тротуарная плитка',
+    desc:'Разные виды и размеры в наличии',
+    items:[
+      {name:'Плитка тротуарная "Брусчатка"', unit:'м²', price:'от 850 ₽'},
+      {name:'Плитка тротуарная "Катушка"', unit:'м²', price:'от 900 ₽'},
+    ]
+  },
+  {
+    id:'tanks',
+    icon:'🛢️',
+    title:'Ёмкости для воды',
+    desc:'Пластиковые ёмкости разного объёма',
+    items:[
+      {name:'Ёмкость пластиковая 200 л', unit:'шт', price:'от 4200 ₽'},
+      {name:'Ёмкость пластиковая 1000 л', unit:'шт', price:'от 9800 ₽'},
+    ]
+  },
+];
+
+/* Хиты продаж — отдельный список, можно дублировать товары из категорий выше */
+const HITS = [
+  {badge:'Хит', name:'Доска обрезная 25х150х6000', unit:'за м³', price:'от 18000 ₽'},
+  {badge:'Хит', name:'Цемент М500, 50 кг', unit:'за мешок', price:'от 550 ₽'},
+  {badge:'Хит', name:'Профлист С8', unit:'за м²', price:'от 420 ₽'},
+  {badge:'Хит', name:'Ёмкость 200 л', unit:'за шт', price:'от 4200 ₽'},
+];
+
+function renderHits(){
+  const grid = document.getElementById('hitsGrid');
+  grid.innerHTML = HITS.map(h => `
+    <div class="hit-card">
+      <span class="badge">${h.badge}</span>
+      <h3>${h.name}</h3>
+      <div class="unit">${h.unit}</div>
+      <div class="price">${h.price}</div>
+    </div>
+  `).join('');
+}
+
+function renderCatalog(){
+  const grid = document.getElementById('catGrid');
+  grid.innerHTML = CATALOG.map(cat => `
+    <button class="cat-card" data-cat="${cat.id}">
+      <h3>${cat.icon} ${cat.title}</h3>
+      <p>${cat.desc}</p>
+      <span class="open-link">Смотреть позиции</span>
+    </button>
+  `).join('');
+
+  grid.querySelectorAll('.cat-card').forEach(card=>{
+    card.addEventListener('click', ()=> openModal(card.dataset.cat));
+  });
+}
+
+function openModal(catId){
+  const cat = CATALOG.find(c=>c.id===catId);
+  if(!cat) return;
+  document.getElementById('modalTitle').textContent = cat.icon + ' ' + cat.title;
+  document.getElementById('modalBody').innerHTML = cat.items.map(it => `
+    <div class="item-row">
+      <div class="item-name">${it.name}<span class="item-unit">${it.unit}</span></div>
+      <div class="item-price">${it.price}</div>
+    </div>
+  `).join('');
+  document.getElementById('modalOverlay').classList.add('active');
+}
+
+document.getElementById('modalClose').addEventListener('click', ()=>{
+  document.getElementById('modalOverlay').classList.remove('active');
+});
+document.getElementById('modalOverlay').addEventListener('click', (e)=>{
+  if(e.target.id==='modalOverlay') e.target.classList.remove('active');
+});
+
+renderHits();
+renderCatalog();
+</script>
+
+</body>
+</html>
