@@ -140,20 +140,36 @@
   .hit-card .price{font-size:22px;font-weight:800;color:var(--blue);margin-bottom:14px;margin-top:auto;}
   .hit-card .price span{font-size:13px;color:#6b7c93;font-weight:400;}
 
-  /* CATALOG */
+  /* CATALOG — витрина: меню слева, товары справа */
   .catalog{background:var(--paper);}
-  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  .cat-card{
-    background:#fff;border-radius:6px;padding:22px;
-    box-shadow:0 2px 10px rgba(15,42,77,.08);border-bottom:4px solid var(--blue);
-    transition:transform .15s ease, border-color .15s ease;
-    cursor:pointer;text-align:left;width:100%;border-top:none;border-left:none;border-right:none;
+  .catalog-shell{
+    display:flex;border-radius:8px;overflow:hidden;
+    box-shadow:0 2px 10px rgba(15,42,77,.08);
   }
-  .cat-card:hover{transform:translateY(-4px);border-bottom-color:var(--yellow);}
-  .cat-card h3{font-size:17px;color:var(--navy);margin-bottom:8px;text-transform:none;letter-spacing:0;}
-  .cat-card p{font-size:14px;color:#445876;margin-bottom:10px;}
-  .cat-card .open-link{font-size:14px;color:var(--blue);font-weight:700;}
-  .cat-card .open-link::after{content:' →';}
+  .catalog-sidebar{
+    width:260px;flex:0 0 260px;background:var(--navy);
+    padding:14px;display:flex;flex-direction:column;gap:4px;
+  }
+  .cat-tab{
+    width:100%;text-align:left;background:transparent;border:none;border-radius:6px;
+    padding:12px 14px;color:#dce8f7;font-size:14px;font-family:inherit;cursor:pointer;
+    display:flex;align-items:center;gap:10px;
+    transition:background .15s ease,color .15s ease;
+  }
+  .cat-tab .ic{font-size:18px;flex:0 0 auto;}
+  .cat-tab:hover{background:var(--blue);color:#fff;}
+  .cat-tab.active{background:var(--yellow);color:var(--navy);font-weight:700;}
+  .catalog-panel{flex:1;min-width:0;background:#fff;padding:30px;}
+  .catalog-panel h3{font-size:22px;color:var(--navy);margin-bottom:6px;text-transform:none;letter-spacing:0;}
+  .catalog-panel .panel-sub{font-size:14px;color:#6b7c93;margin-bottom:22px;max-width:560px;}
+  .panel-photo{
+    width:100%;height:170px;border-radius:8px;overflow:hidden;margin-bottom:22px;
+    background:linear-gradient(135deg,var(--blue),var(--navy));
+    display:flex;align-items:center;justify-content:center;
+    color:rgba(255,255,255,.55);font-size:14px;
+  }
+  .panel-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .panel-items{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 
   /* DELIVERY */
   .delivery{background:var(--yellow);color:var(--navy);}
@@ -170,36 +186,7 @@
   footer p, footer a{font-size:15px;color:#d6e2f2;display:block;margin-bottom:6px;}
   .foot-bottom{border-top:1px solid rgba(255,255,255,.15);padding-top:20px;text-align:center;font-size:13px;color:#9fb4d1;}
 
-  /* MODAL */
-  .modal-overlay{
-    display:none;position:fixed;inset:0;background:rgba(15,42,77,.72);
-    z-index:999;align-items:center;justify-content:center;padding:20px;
-  }
-  .modal-overlay.active{display:flex;}
-  .modal-box{
-    background:#fff;border-radius:10px;max-width:640px;width:100%;
-    max-height:80vh;overflow-y:auto;padding:0;
-    border-top:8px solid var(--yellow);
-  }
-  .modal-head{
-    background:var(--navy);color:#fff;padding:22px 28px;
-    display:flex;justify-content:space-between;align-items:center;
-  }
-  .modal-head h3{color:var(--yellow);font-size:22px;text-transform:none;letter-spacing:0;}
-  .modal-close{
-    background:none;border:none;color:#fff;font-size:26px;cursor:pointer;line-height:1;
-  }
-  .modal-body{padding:0 0 24px;}
-  .modal-photo{
-    width:100%;height:160px;
-    background:linear-gradient(135deg,var(--blue),var(--navy));
-    background-size:cover;background-position:center;
-    display:flex;align-items:center;justify-content:center;
-    color:rgba(255,255,255,.55);font-size:14px;font-weight:600;
-    text-transform:uppercase;letter-spacing:.5px;
-  }
-  .modal-photo.has-image{color:transparent;}
-  .modal-items{padding:24px 28px 0;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  /* карточки товаров — используются на витрине каталога */
   .item-card{
     border:1px solid #eee;border-radius:8px;overflow:hidden;
     display:flex;flex-direction:column;background:#fff;
@@ -211,18 +198,11 @@
     display:flex;align-items:center;justify-content:center;
     color:rgba(255,255,255,.55);font-size:11px;text-transform:uppercase;letter-spacing:.4px;
   }
+  .item-card .item-photo img{width:100%;height:100%;object-fit:cover;display:block;}
   .item-card .item-info{padding:12px 14px 14px;}
   .item-card .item-name{font-size:14px;color:var(--ink);font-weight:600;display:block;margin-bottom:2px;}
   .item-card .item-unit{font-size:12px;color:#8a97a8;display:block;margin-bottom:8px;}
   .item-card .item-price{font-size:16px;font-weight:800;color:var(--blue);}
-  .modal-foot{
-    padding:22px 28px 26px;text-align:center;
-  }
-
-  /* модальные фото — теперь настоящие <img loading="lazy">, ленивая загрузка работает сама собой */
-  .modal-photo img, .item-card .item-photo img{
-    width:100%;height:100%;object-fit:cover;display:block;
-  }
 
   /* REVIEWS */
   .reviews{background:var(--paper);}
@@ -286,7 +266,14 @@
     .about-grid{grid-template-columns:1fr;}
     .adv-grid{grid-template-columns:1fr;}
     .hits-grid{grid-template-columns:1fr 1fr;}
-    .cat-grid{grid-template-columns:1fr 1fr;}
+    .catalog-shell{flex-direction:column;}
+    .catalog-sidebar{
+      width:100%;flex:0 0 auto;flex-direction:row;overflow-x:auto;
+      gap:8px;padding:12px;-webkit-overflow-scrolling:touch;
+    }
+    .cat-tab{flex:0 0 auto;white-space:nowrap;}
+    .catalog-panel{padding:22px;}
+    .panel-items{grid-template-columns:1fr 1fr;}
     .rev-grid{grid-template-columns:1fr;}
     .foot-grid{grid-template-columns:1fr;}
     .delivery-inner{text-align:center;justify-content:center;}
@@ -295,9 +282,22 @@
   }
   @media(max-width:480px){
     .hits-grid{grid-template-columns:1fr;}
-    .cat-grid{grid-template-columns:1fr;}
+    .panel-items{grid-template-columns:1fr;}
   }
 </style>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110022836', 'ym');
+    ym(110022836, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110022836" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
@@ -358,8 +358,11 @@
   <section class="catalog" id="catalog">
     <div class="wrap">
       <h2 class="section-title">Каталог материалов</h2>
-      <p class="section-sub">Нажмите на категорию, чтобы посмотреть позиции и цены</p>
-      <div class="cat-grid" id="catGrid"></div>
+      <p class="section-sub">Выберите категорию слева — позиции и цены откроются здесь же</p>
+      <div class="catalog-shell" data-reveal>
+        <div class="catalog-sidebar" id="catSidebar"></div>
+        <div class="catalog-panel" id="catPanel"></div>
+      </div>
     </div>
   </section>
 
@@ -463,23 +466,6 @@
   <!-- ПЛАВАЮЩИЕ КНОПКИ -->
   <a href="tel:+79591305900" class="float-call" aria-label="Позвонить" title="Позвонить">📞</a>
   <button class="to-top" id="toTopBtn" aria-label="Наверх страницы" title="Наверх">↑</button>
-
-  <!-- MODAL -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal-box">
-      <div class="modal-head">
-        <h3 id="modalTitle">Категория</h3>
-        <button class="modal-close" id="modalClose">&times;</button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-photo" id="modalPhoto">Фото категории — добавьте позже</div>
-        <div class="modal-items" id="modalItems"></div>
-      </div>
-      <div class="modal-foot">
-        <a href="tel:+79591305900" class="btn small">Заказать по телефону</a>
-      </div>
-    </div>
-  </div>
 
 <script>
 /*
@@ -641,63 +627,54 @@ function renderHits(){
 }
 
 function renderCatalog(){
-  const grid = document.getElementById('catGrid');
-  grid.innerHTML = CATALOG.map((cat,i) => `
-    <button class="cat-card" data-cat="${cat.id}" data-reveal style="transition-delay:${(i%3)*70}ms">
-      <h3>${cat.icon} ${cat.title}</h3>
-      <p>${cat.desc}</p>
-      <span class="open-link">Смотреть позиции</span>
-    </button>
-  `).join('');
+  const sidebar = document.getElementById('catSidebar');
+  const panel = document.getElementById('catPanel');
 
-  grid.querySelectorAll('.cat-card').forEach(card=>{
-    card.addEventListener('click', ()=> openModal(card.dataset.cat));
-  });
-}
-
-function openModal(catId){
-  const cat = CATALOG.find(c=>c.id===catId);
-  if(!cat) return;
-
-  document.getElementById('modalTitle').textContent = cat.icon + ' ' + cat.title;
-
-  // Фото-баннер категории: если в cat.image указана ссылка — рендерим <img loading="lazy">,
-  // если null — оставляем градиентную заглушку (картинка вообще не запрашивается из сети)
-  const photoEl = document.getElementById('modalPhoto');
-  if(cat.image){
-    photoEl.style.backgroundImage = 'none';
-    photoEl.classList.add('has-image');
-    photoEl.innerHTML = `<img src="${cat.image}" alt="${cat.title}" loading="lazy" decoding="async">`;
-  } else {
-    photoEl.style.backgroundImage = '';
-    photoEl.classList.remove('has-image');
-    photoEl.innerHTML = 'Фото категории — добавьте позже';
+  function renderSidebar(activeId){
+    sidebar.innerHTML = CATALOG.map(cat => `
+      <button class="cat-tab${cat.id===activeId ? ' active' : ''}" data-cat="${cat.id}">
+        <span class="ic">${cat.icon}</span>${cat.title}
+      </button>
+    `).join('');
+    sidebar.querySelectorAll('.cat-tab').forEach(btn=>{
+      btn.addEventListener('click', ()=> showCategory(btn.dataset.cat));
+    });
   }
 
-  // Карточки товаров. Картинка у каждой карточки сейчас = фото категории (одна на всю категорию).
   // Ленивая загрузка: пока cat.image не заполнено, никаких картинок не запрашивается вовсе.
-  document.getElementById('modalItems').innerHTML = cat.items.map(it => `
-    <div class="item-card">
-      <div class="item-photo">
-        ${cat.image ? `<img src="${cat.image}" alt="${it.name}" loading="lazy" decoding="async">` : 'фото'}
-      </div>
-      <div class="item-info">
-        <span class="item-name">${it.name}</span>
-        <span class="item-unit">${it.unit}</span>
-        <span class="item-price">${it.price}</span>
-      </div>
-    </div>
-  `).join('');
+  function showCategory(catId){
+    const cat = CATALOG.find(c=>c.id===catId);
+    if(!cat) return;
 
-  document.getElementById('modalOverlay').classList.add('active');
+    renderSidebar(catId);
+
+    const photoHtml = cat.image
+      ? `<div class="panel-photo"><img src="${cat.image}" alt="${cat.title}" loading="lazy" decoding="async"></div>`
+      : '';
+
+    panel.innerHTML = `
+      <h3>${cat.icon} ${cat.title}</h3>
+      <p class="panel-sub">${cat.desc}</p>
+      ${photoHtml}
+      <div class="panel-items">
+        ${cat.items.map(it => `
+          <div class="item-card">
+            <div class="item-photo">
+              ${cat.image ? `<img src="${cat.image}" alt="${it.name}" loading="lazy" decoding="async">` : 'фото'}
+            </div>
+            <div class="item-info">
+              <span class="item-name">${it.name}</span>
+              <span class="item-unit">${it.unit}</span>
+              <span class="item-price">${it.price}</span>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  showCategory(CATALOG[0].id);
 }
-
-document.getElementById('modalClose').addEventListener('click', ()=>{
-  document.getElementById('modalOverlay').classList.remove('active');
-});
-document.getElementById('modalOverlay').addEventListener('click', (e)=>{
-  if(e.target.id==='modalOverlay') e.target.classList.remove('active');
-});
 
 renderHits();
 renderCatalog();
